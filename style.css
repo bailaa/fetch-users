@@ -1,0 +1,87 @@
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f5f6f8;
+  color: #1f2430;
+}
+
+#login {
+  margin: 0 0 14px;
+  font-size: 20px;
+  letter-spacing: .02em;
+}
+
+#cancel {
+  font: inherit;
+  padding: 8px 16px;
+  border: 1px solid #c8cfdb;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease;
+}
+#cancel:hover { background: #eef2f8; border-color: #a9b4c6; }
+#cancel:active { background: #e2e8f2; }
+
+#summary {
+  display: block;
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #475467;
+}
+#summary[data-state="loading"] { color: #475467; }
+#summary[data-state="success"] { color: #067647; }
+#summary[data-state="partial"] { color: #b54708; }
+#summary[data-state="error"]   { color: #b42318; }
+#summary[data-state="aborted"] { color: #b54708; }
+
+#users {
+  margin-top: 22px;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+#users article {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #e2e6ee;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, .06);
+}
+
+#users article[data-state="loading"] { opacity: .65; }
+#users article[data-state="error"]   { border-color: #f0b4b4; background: #fff6f6; }
+#users article[data-state="aborted"] { border-color: #ecd3a6; background: #fffaf1; }
+
+article .name {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.25;
+}
+article .email {
+  font-size: 14px;
+  color: #2563eb;
+  text-decoration: none;
+  word-break: break-all;
+}
+article .email:hover { text-decoration: underline; }
+article .city,
+article .company {
+  font-size: 13px;
+  color: #5b6474;
+}
+article .message {
+  font-size: 14px;
+  color: #b42318;
+}
+article[data-state="aborted"] .message { color: #b54708; }
+article[data-state="loading"] .message { color: #5b6474; }
